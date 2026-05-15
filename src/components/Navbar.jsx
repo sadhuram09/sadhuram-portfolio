@@ -55,70 +55,158 @@ export default function Navbar() {
     setDrawerOpen(false)
   }
 
-  const navLinkClass = (href) =>
-    `rounded-full px-5 py-2 text-[0.85rem] transition-all duration-200 ${
-      activeHref === href
-        ? 'bg-white/10 text-white'
-        : 'text-white/60 hover:bg-white/10 hover:text-white'
-    }`
+  const linkStyle = (href, isActive) => ({
+    padding: '8px 18px',
+    borderRadius: '999px',
+    fontSize: '0.82rem',
+    color: isActive ? 'white' : 'rgba(255,255,255,0.55)',
+    textDecoration: 'none',
+    background: isActive ? 'rgba(255,255,255,0.08)' : 'transparent',
+    transition: 'background 0.2s, color 0.2s',
+  })
+
+  const handleLinkHover = (e, href, entering) => {
+    if (activeHref === href) return
+    if (entering) {
+      e.currentTarget.style.background = 'rgba(255,255,255,0.08)'
+      e.currentTarget.style.color = 'white'
+    } else {
+      e.currentTarget.style.background = 'transparent'
+      e.currentTarget.style.color = 'rgba(255,255,255,0.55)'
+    }
+  }
 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled ? 'navbar-glass' : 'bg-transparent'
-        }`}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          transition: 'background 0.3s',
+          ...(scrolled
+            ? {
+                background: 'rgba(8,8,16,0.7)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+              }
+            : { background: 'transparent' }),
+        }}
       >
-        <nav className="relative mx-auto flex max-w-content items-center justify-between px-6 py-5 md:px-8">
+        <nav
+          style={{
+            maxWidth: '1100px',
+            margin: '0 auto',
+            padding: '20px 32px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            position: 'relative',
+          }}
+        >
           <a
             href="#home"
-            className="relative z-10 text-lg font-light tracking-mono text-heading"
             onClick={() => handleNavClick('#home')}
+            style={{
+              fontSize: '1.1rem',
+              fontWeight: 300,
+              letterSpacing: '0.1em',
+              color: 'white',
+              textDecoration: 'none',
+              position: 'relative',
+              zIndex: 10,
+            }}
           >
             SA
           </a>
 
-          <ul
-            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-0.5 rounded-full border border-white/10 px-2 py-1.5 backdrop-blur-[20px] md:flex"
+          <div
+            className="nav-pill-desktop"
             style={{
+              position: 'absolute',
+              left: '50%',
+              transform: 'translateX(-50%)',
               background: 'rgba(255,255,255,0.06)',
-              WebkitBackdropFilter: 'blur(20px)',
               backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '999px',
+              padding: '6px 8px',
+              gap: '4px',
+              alignItems: 'center',
             }}
           >
             {links.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className={navLinkClass(link.href)}
-                  onClick={() => handleNavClick(link.href)}
-                >
-                  {link.label}
-                </a>
-              </li>
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => handleNavClick(link.href)}
+                style={linkStyle(link.href, activeHref === link.href)}
+                onMouseEnter={(e) => handleLinkHover(e, link.href, true)}
+                onMouseLeave={(e) => handleLinkHover(e, link.href, false)}
+              >
+                {link.label}
+              </a>
             ))}
-          </ul>
+          </div>
 
-          <div className="relative z-10 flex items-center gap-3">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', position: 'relative', zIndex: 10 }}>
             <a
               href="#contact"
-              className="hidden rounded-full bg-white px-5 py-2 text-[0.85rem] font-medium text-[#080810] transition-colors duration-200 hover:bg-white/90 md:inline-flex"
+              className="hire-btn-desktop"
               onClick={() => handleNavClick('#contact')}
+              style={{
+                background: 'white',
+                color: '#080810',
+                borderRadius: '999px',
+                padding: '8px 20px',
+                fontSize: '0.82rem',
+                fontWeight: 500,
+                textDecoration: 'none',
+                transition: 'opacity 0.2s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.opacity = '0.9'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.opacity = '1'
+              }}
             >
               Hire Me →
             </a>
 
             <button
               type="button"
-              className="text-muted transition-colors hover:text-cyan md:hidden"
+              className="nav-menu-mobile"
               onClick={() => setDrawerOpen(true)}
               aria-label="Open menu"
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'rgba(255,255,255,0.6)',
+                cursor: 'pointer',
+                padding: '4px',
+              }}
             >
               <Menu size={22} strokeWidth={1.5} />
             </button>
           </div>
         </nav>
       </header>
+
+      <style>{`
+        .nav-pill-desktop { display: none; }
+        .hire-btn-desktop { display: none; }
+        .nav-menu-mobile { display: flex; }
+        @media (min-width: 768px) {
+          .nav-pill-desktop { display: flex; }
+          .hire-btn-desktop { display: inline-flex; }
+          .nav-menu-mobile { display: none; }
+        }
+      `}</style>
 
       {drawerOpen && (
         <button
@@ -130,13 +218,13 @@ export default function Navbar() {
       )}
 
       <aside
-        className={`fixed right-0 top-0 z-[70] flex h-full w-[min(320px,85vw)] flex-col border-l border-glass-border bg-[rgba(8,8,16,0.95)] p-8 backdrop-blur-glass transition-transform duration-300 md:hidden ${
+        className={`fixed right-0 top-0 z-[70] flex h-full w-[min(320px,85vw)] flex-col border-l border-white/10 bg-[#080810] p-8 transition-transform duration-300 md:hidden ${
           drawerOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <button
           type="button"
-          className="mb-10 self-end text-muted transition-colors hover:text-cyan"
+          className="mb-10 self-end text-white/60 transition-colors hover:text-white"
           onClick={() => setDrawerOpen(false)}
           aria-label="Close menu"
         >
@@ -147,12 +235,8 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className={`block rounded-full px-4 py-3 text-lg transition-colors duration-200 ${
-                  activeHref === link.href
-                    ? 'bg-white/10 text-white'
-                    : 'text-muted hover:bg-white/10 hover:text-cyan'
-                }`}
                 onClick={() => handleNavClick(link.href)}
+                style={linkStyle(link.href, activeHref === link.href)}
               >
                 {link.label}
               </a>
@@ -161,8 +245,19 @@ export default function Navbar() {
         </ul>
         <a
           href="#contact"
-          className="mt-8 inline-flex justify-center rounded-full bg-white px-5 py-3 text-[0.85rem] font-medium text-[#080810] transition-colors hover:bg-white/90"
           onClick={() => handleNavClick('#contact')}
+          style={{
+            marginTop: '32px',
+            display: 'inline-flex',
+            justifyContent: 'center',
+            background: 'white',
+            color: '#080810',
+            borderRadius: '999px',
+            padding: '12px 20px',
+            fontSize: '0.82rem',
+            fontWeight: 500,
+            textDecoration: 'none',
+          }}
         >
           Hire Me →
         </a>

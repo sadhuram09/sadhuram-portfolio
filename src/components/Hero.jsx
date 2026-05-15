@@ -1,14 +1,6 @@
 import { motion } from 'framer-motion'
-import { Mail } from 'lucide-react'
+import { Code2, Mail } from 'lucide-react'
 import profileImg from '../assets/profile.jpeg'
-
-const ease = [0.25, 0.1, 0.25, 1]
-
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, ease, delay },
-})
 
 function GitHubIcon({ size = 20 }) {
   return (
@@ -48,125 +40,240 @@ function LinkedInIcon({ size = 20 }) {
   )
 }
 
-function LeetCodeIcon({ size = 20 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M13.483 2.004h-1.966L9.66 5.823l-1.857-3.819H5.837l3.29 6.77L5.837 16.77h1.966l1.857-3.819 1.857 3.819h1.966l-3.29-6.77 3.29-6.77zm-1.966 9.543l1.857 3.819h-1.966l-1.857-3.819 1.966-3.819z" />
-    </svg>
-  )
-}
-
-const socials = [
-  { label: 'GitHub', href: 'https://github.com/sadhuram09', Icon: GitHubIcon },
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/sadhuram-agarwal-175249279/',
-    Icon: LinkedInIcon,
-  },
-  { label: 'LeetCode', href: 'https://leetcode.com/u/SADHURAMAGARWAL/', Icon: LeetCodeIcon },
-]
-
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#080810] px-6 pb-24 pt-28 text-center"
-      style={{ minHeight: '100vh' }}
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        padding: '0 24px',
+        textAlign: 'center',
+        background: '#080810',
+      }}
     >
+      {/* Planet orb */}
       <div
-        className="pointer-events-none absolute bottom-[-200px] left-1/2 z-0 h-[900px] w-[900px] -translate-x-1/2 rounded-full"
         style={{
+          position: 'absolute',
+          bottom: '-300px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '900px',
+          height: '900px',
+          borderRadius: '50%',
           background:
-            'radial-gradient(ellipse at center, rgba(6,182,212,0.12) 0%, rgba(99,102,241,0.06) 40%, transparent 70%)',
+            'radial-gradient(ellipse at center, rgba(6,182,212,0.13) 0%, rgba(99,102,241,0.07) 40%, transparent 70%)',
           filter: 'blur(60px)',
+          pointerEvents: 'none',
+          zIndex: 0,
         }}
-        aria-hidden="true"
       />
 
-      <div className="relative z-[1] mx-auto flex w-full max-w-5xl flex-col items-center">
+      {/* Content */}
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', width: '100%' }}>
+        {/* Badge */}
         <motion.div
-          {...fadeUp(0)}
-          className="mb-10 rounded-full border border-white/10 bg-white/[0.06] px-4 py-1.5 text-[0.75rem] text-white/60"
-        >
-          ✦ Open to opportunities · 2026
-        </motion.div>
-
-        <motion.h1
-          {...fadeUp(0.08)}
-          className="mb-8 font-sans font-light tracking-tight text-[#F0F0F5]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           style={{
-            fontSize: 'clamp(3.5rem, 7vw, 6rem)',
-            lineHeight: 1.05,
-            fontWeight: 300,
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            background: 'rgba(255,255,255,0.06)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            borderRadius: '999px',
+            padding: '6px 18px',
+            fontSize: '0.75rem',
+            color: 'rgba(255,255,255,0.6)',
+            letterSpacing: '0.08em',
+            marginBottom: '40px',
           }}
         >
-          AI/ML Engineer
-        </motion.h1>
+          <span
+            style={{
+              width: '6px',
+              height: '6px',
+              borderRadius: '50%',
+              background: '#22c55e',
+              display: 'inline-block',
+            }}
+          />
+          Open to opportunities · 2026
+        </motion.div>
 
+        {/* Heading */}
         <motion.div
-          {...fadeUp(0.16)}
-          className="mb-10 flex flex-wrap items-center justify-center text-[1.1rem] text-white/60"
-          style={{ gap: '12px' }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          style={{ marginBottom: '32px' }}
+        >
+          <div
+            style={{
+              fontFamily: 'Georgia, serif',
+              fontStyle: 'italic',
+              fontWeight: 400,
+              fontSize: 'clamp(3rem, 7vw, 5.5rem)',
+              color: 'rgba(255,255,255,0.4)',
+              lineHeight: 1.05,
+              marginBottom: '4px',
+            }}
+          >
+            Systems that
+          </div>
+          <div
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 300,
+              fontSize: 'clamp(3rem, 7vw, 5.5rem)',
+              color: '#F0F0F5',
+              lineHeight: 1.05,
+            }}
+          >
+            actually ship.
+          </div>
+        </motion.div>
+
+        {/* Inline intro */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '12px',
+            fontSize: '1.1rem',
+            color: 'rgba(255,255,255,0.55)',
+            marginBottom: '48px',
+            flexWrap: 'wrap',
+          }}
         >
           <span>Hello, I&apos;m Sadhuram</span>
           <img
             src={profileImg}
-            alt="Sadhuram Agarwal"
-            className="h-10 w-10 shrink-0 rounded-full border border-white/20 object-cover"
-            width={40}
-            height={40}
+            alt="Sadhuram"
+            style={{
+              width: '36px',
+              height: '36px',
+              borderRadius: '50%',
+              objectFit: 'cover',
+              objectPosition: 'top',
+              border: '1px solid rgba(255,255,255,0.2)',
+            }}
           />
           <span>an AI/ML Engineer</span>
         </motion.div>
 
+        {/* Buttons */}
         <motion.div
-          {...fadeUp(0.24)}
-          className="mb-12 flex flex-wrap items-center justify-center gap-5"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '20px',
+            marginBottom: '56px',
+            flexWrap: 'wrap',
+          }}
         >
           <a
             href="#contact"
-            className="inline-flex items-center rounded-full bg-white px-7 py-3 text-[0.9rem] font-medium text-[#080810] transition-colors duration-200 hover:bg-white/90"
+            style={{
+              background: 'white',
+              color: '#080810',
+              borderRadius: '999px',
+              padding: '12px 28px',
+              fontWeight: 500,
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+              transition: 'opacity 0.2s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.opacity = '0.85'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.opacity = '1'
+            }}
           >
             Let&apos;s Connect →
           </a>
           <a
             href="mailto:sadhuramyk7@gmail.com"
-            className="inline-flex items-center gap-2 text-[0.85rem] text-white/50 transition-colors duration-200 hover:text-white"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              color: 'rgba(255,255,255,0.45)',
+              fontSize: '0.85rem',
+              textDecoration: 'none',
+              transition: 'color 0.2s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = 'white'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'rgba(255,255,255,0.45)'
+            }}
           >
-            <Mail size={16} strokeWidth={1.5} />
+            <Mail size={14} />
             sadhuramyk7@gmail.com
           </a>
         </motion.div>
 
+        {/* Social icons */}
         <motion.div
-          {...fadeUp(0.32)}
-          className="flex items-center justify-center"
-          style={{ gap: '24px' }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          style={{ display: 'flex', justifyContent: 'center', gap: '28px' }}
         >
-          {socials.map(({ label, href, Icon }) => (
+          {[
+            { icon: <GitHubIcon size={20} />, href: 'https://github.com/sadhuram09', label: 'GitHub' },
+            {
+              icon: <LinkedInIcon size={20} />,
+              href: 'https://www.linkedin.com/in/sadhuram-agarwal-175249279/',
+              label: 'LinkedIn',
+            },
+            {
+              icon: <Code2 size={20} />,
+              href: 'https://leetcode.com/u/SADHURAMAGARWAL/',
+              label: 'LeetCode',
+            },
+          ].map((s) => (
             <a
-              key={label}
-              href={href}
+              key={s.label}
+              href={s.href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={label}
-              className="text-white/40 transition-colors duration-200 hover:text-white/90"
+              aria-label={s.label}
+              style={{
+                color: 'rgba(255,255,255,0.35)',
+                transition: 'color 0.2s',
+                display: 'flex',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = 'white'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'rgba(255,255,255,0.35)'
+              }}
             >
-              <Icon size={20} />
+              {s.icon}
             </a>
           ))}
         </motion.div>
       </div>
-
-      <motion.div
-        className="absolute bottom-10 left-1/2 z-[1] -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.6, ease }}
-        aria-hidden="true"
-      >
-        <div className="hero-scroll-line" />
-      </motion.div>
     </section>
   )
 }
