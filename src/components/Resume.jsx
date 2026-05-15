@@ -30,11 +30,16 @@ export default function Resume() {
             AI/ML Engineer · Updated 2026
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <a href="/resume.pdf" download className="btn-primary">
+            
+              href="https://drive.google.com/uc?export=download&id=1974874fiIm3AJzhTqDS5TGH6FOUY2_z4"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
               Download PDF ↓
             </a>
-            <a
-              href="/resume.pdf"
+            
+              href="https://drive.google.com/file/d/1974874fiIm3AJzhTqDS5TGH6FOUY2_z4/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
