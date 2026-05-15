@@ -78,7 +78,14 @@ export default function Navbar() {
             SA
           </a>
 
-          <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-0.5 rounded-full border border-white/10 bg-white/[0.06] px-2 py-1.5 backdrop-blur-[20px] md:flex">
+          <ul
+            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-0.5 rounded-full border border-white/10 px-2 py-1.5 backdrop-blur-[20px] md:flex"
+            style={{
+              background: 'rgba(255,255,255,0.06)',
+              WebkitBackdropFilter: 'blur(20px)',
+              backdropFilter: 'blur(20px)',
+            }}
+          >
             {links.map((link) => (
               <li key={link.href}>
                 <a

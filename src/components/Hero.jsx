@@ -93,24 +93,20 @@ export default function Hero() {
 
         <motion.h1
           {...fadeUp(0.08)}
-          className="mb-8 w-full"
+          className="mb-8 font-sans font-light tracking-tight text-[#F0F0F5]"
           style={{
             fontSize: 'clamp(3.5rem, 7vw, 6rem)',
             lineHeight: 1.05,
+            fontWeight: 300,
           }}
         >
-          <span
-            className="block font-serif font-normal italic text-white/50"
-            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-          >
-            Systems that
-          </span>
-          <span className="block font-sans font-light text-[#F0F0F5]">actually ship.</span>
+          AI/ML Engineer
         </motion.h1>
 
         <motion.div
           {...fadeUp(0.16)}
-          className="mb-10 flex flex-wrap items-center justify-center gap-3 text-[1.1rem] text-white/60"
+          className="mb-10 flex flex-wrap items-center justify-center text-[1.1rem] text-white/60"
+          style={{ gap: '12px' }}
         >
           <span>Hello, I&apos;m Sadhuram</span>
           <img
@@ -164,10 +160,12 @@ export default function Hero() {
 
       <motion.div
         className="absolute bottom-10 left-1/2 z-[1] -translate-x-1/2"
-        {...fadeUp(0.5)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.6, ease }}
         aria-hidden="true"
       >
-        <motion.div className="hero-scroll-line" />
+        <div className="hero-scroll-line" />
       </motion.div>
     </section>
   )
