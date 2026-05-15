@@ -32,12 +32,11 @@ export default function About() {
           <h2 className="mb-6 text-[2rem] font-light text-heading">Who I Am</h2>
           <p className="mb-8 text-muted">
             I&apos;m Sadhuram — a developer and ML engineer based in Bengaluru,
-            India. I build things at the intersection of intelligent systems and
-            clean interfaces: fraud detection platforms, multilingual AI
-            pipelines, real-time anomaly dashboards. Currently in my third year
-            at CMRIT (CGPA 8.92), I&apos;ve led ML backends at national
-            hackathons and shipped products used by real users. I write C++,
-            Python, and JavaScript — whichever one the problem deserves.
+            India. I build scalable AI systems, intelligent backends, and clean
+            user interfaces. From real-time fraud detection engines to
+            multilingual NLP pipelines, I work across the full stack — from model
+            training to production deployment. I write C++, Python, and
+            JavaScript — whichever one the problem deserves.
           </p>
           <motion.div
             className="flex flex-wrap gap-3"

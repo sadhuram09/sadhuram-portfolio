@@ -44,7 +44,7 @@ export default function Resume() {
           </div>
         </motion.div>
 
-        <p className="mt-8 text-sm text-muted">Last updated · May 2025</p>
+        <p className="mt-8 text-sm text-muted">Last updated · May 2026</p>
       </motion.div>
     </section>
   )
