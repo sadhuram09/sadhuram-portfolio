@@ -190,6 +190,26 @@
   }
 }
 
+.hero-scroll-line {
+  width: 1px;
+  height: 48px;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, transparent, rgba(6, 182, 212, 0.6));
+  animation: heroScrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes heroScrollPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
 .cursor {
   position: fixed;
   width: 20px;

@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion'
+import { Mail } from 'lucide-react'
+import profileImg from '../assets/profile.jpeg'
 
 const ease = [0.25, 0.1, 0.25, 1]
 
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 16 },
+  initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease, delay },
+  transition: { duration: 0.7, ease, delay },
 })
 
 function GitHubIcon({ size = 20 }) {
@@ -55,84 +57,95 @@ function LeetCodeIcon({ size = 20 }) {
 }
 
 const socials = [
-  {
-    label: 'GitHub',
-    href: 'https://github.com/sadhuram09',
-    Icon: GitHubIcon,
-  },
+  { label: 'GitHub', href: 'https://github.com/sadhuram09', Icon: GitHubIcon },
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/sadhuram-agarwal-175249279/',
     Icon: LinkedInIcon,
   },
-  {
-    label: 'LeetCode',
-    href: 'https://leetcode.com/u/SADHURAMAGARWAL/',
-    Icon: LeetCodeIcon,
-  },
+  { label: 'LeetCode', href: 'https://leetcode.com/u/SADHURAMAGARWAL/', Icon: LeetCodeIcon },
 ]
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-24 text-center"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#080810] px-6 pb-24 pt-28 text-center"
       style={{ minHeight: '100vh' }}
     >
-      <motion.div
-        className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+      <div
+        className="pointer-events-none absolute bottom-[-200px] left-1/2 z-0 h-[900px] w-[900px] -translate-x-1/2 rounded-full"
         style={{
-          background: 'rgba(6, 182, 212, 0.07)',
-          filter: 'blur(120px)',
+          background:
+            'radial-gradient(ellipse at center, rgba(6,182,212,0.12) 0%, rgba(99,102,241,0.06) 40%, transparent 70%)',
+          filter: 'blur(60px)',
         }}
         aria-hidden="true"
       />
 
-      <motion.div className="relative z-[1] mx-auto flex w-full max-w-4xl flex-col items-center">
+      <div className="relative z-[1] mx-auto flex w-full max-w-5xl flex-col items-center">
         <motion.div
           {...fadeUp(0)}
-          className="mb-8 flex items-center justify-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-cyan"
+          className="mb-10 rounded-full border border-white/10 bg-white/[0.06] px-4 py-1.5 text-[0.75rem] text-white/60"
         >
-          <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-[#22c55e]" />
-          // AVAILABLE FOR OPPORTUNITIES
+          ✦ Open to opportunities · 2026
         </motion.div>
 
         <motion.h1
           {...fadeUp(0.08)}
-          className="mb-6 font-light text-heading"
+          className="mb-8 w-full"
           style={{
-            fontSize: 'clamp(3.5rem, 8vw, 6.5rem)',
-            lineHeight: 1.1,
-            fontWeight: 300,
+            fontSize: 'clamp(3.5rem, 7vw, 6rem)',
+            lineHeight: 1.05,
           }}
         >
-          AI/ML Engineer
-          <br />
-          &amp; Full-Stack Dev
+          <span
+            className="block font-serif font-normal italic text-white/50"
+            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+          >
+            Systems that
+          </span>
+          <span className="block font-sans font-light text-[#F0F0F5]">actually ship.</span>
         </motion.h1>
 
-        <motion.p
+        <motion.div
           {...fadeUp(0.16)}
-          className="mb-10 max-w-xl text-[1.1rem] text-muted"
+          className="mb-10 flex flex-wrap items-center justify-center gap-3 text-[1.1rem] text-white/60"
         >
-          Building scalable AI systems that solve real problems.
-        </motion.p>
+          <span>Hello, I&apos;m Sadhuram</span>
+          <img
+            src={profileImg}
+            alt="Sadhuram Agarwal"
+            className="h-10 w-10 shrink-0 rounded-full border border-white/20 object-cover"
+            width={40}
+            height={40}
+          />
+          <span>an AI/ML Engineer</span>
+        </motion.div>
 
         <motion.div
           {...fadeUp(0.24)}
-          className="mb-10 flex flex-wrap items-center justify-center gap-4"
+          className="mb-12 flex flex-wrap items-center justify-center gap-5"
         >
-          <a href="#projects" className="btn-primary">
-            View Projects →
+          <a
+            href="#contact"
+            className="inline-flex items-center rounded-full bg-white px-7 py-3 text-[0.9rem] font-medium text-[#080810] transition-colors duration-200 hover:bg-white/90"
+          >
+            Let&apos;s Connect →
           </a>
-          <a href="#contact" className="btn-secondary">
-            Let&apos;s Talk
+          <a
+            href="mailto:sadhuramyk7@gmail.com"
+            className="inline-flex items-center gap-2 text-[0.85rem] text-white/50 transition-colors duration-200 hover:text-white"
+          >
+            <Mail size={16} strokeWidth={1.5} />
+            sadhuramyk7@gmail.com
           </a>
         </motion.div>
 
         <motion.div
           {...fadeUp(0.32)}
-          className="flex items-center justify-center gap-6"
+          className="flex items-center justify-center"
+          style={{ gap: '24px' }}
         >
           {socials.map(({ label, href, Icon }) => (
             <a
@@ -141,27 +154,20 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="text-muted transition-colors duration-200 hover:text-cyan"
+              className="text-white/40 transition-colors duration-200 hover:text-white/90"
             >
               <Icon size={20} />
             </a>
           ))}
         </motion.div>
-      </motion.div>
+      </div>
 
       <motion.div
-        className="absolute bottom-12 left-1/2 z-10 -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6, ease }}
+        className="absolute bottom-10 left-1/2 z-[1] -translate-x-1/2"
+        {...fadeUp(0.5)}
         aria-hidden="true"
       >
-        <motion.div
-          className="h-10 w-px bg-muted/40"
-          animate={{ scaleY: [0.6, 1, 0.6], opacity: [0.3, 0.7, 0.3] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ transformOrigin: 'top' }}
-        />
+        <motion.div className="hero-scroll-line" />
       </motion.div>
     </section>
   )
