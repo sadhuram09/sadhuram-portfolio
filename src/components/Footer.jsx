@@ -16,7 +16,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="px-6 py-16 text-center">
+      <footer className="footer-glass px-6 py-16 text-center">
         <p className="text-[0.8rem] text-muted">
           Sadhuram Agarwal · Built with React · 2025
         </p>
@@ -26,7 +26,7 @@ export default function Footer() {
         type="button"
         onClick={scrollToTop}
         aria-label="Back to top"
-        className={`fixed bottom-8 right-8 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-glass-border bg-white/[0.06] text-muted transition-all duration-300 hover:text-cyan ${
+        className={`glass-chip fixed bottom-8 right-8 z-40 flex h-10 w-10 items-center justify-center text-muted transition-all duration-300 hover:text-cyan ${
           showTop ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0'
         }`}
       >

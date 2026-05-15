@@ -164,7 +164,7 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           <motion.div
-            className="flex flex-col gap-6"
+            className="glass-card glass-card-hover flex flex-col gap-6 p-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -177,7 +177,7 @@ export default function Contact() {
 
           <motion.form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4"
+            className="glass-card glass-card-hover flex flex-col gap-4 p-8"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

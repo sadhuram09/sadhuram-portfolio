@@ -32,9 +32,7 @@ export default function Navbar() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'border-b border-white/[0.06] bg-[rgba(8,8,16,0.8)] backdrop-blur-glass'
-            : 'bg-transparent'
+          scrolled ? 'navbar-glass' : 'bg-transparent'
         }`}
       >
         <nav className="mx-auto flex max-w-content items-center justify-between px-6 py-5 md:px-8">

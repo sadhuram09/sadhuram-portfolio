@@ -15,7 +15,7 @@ export default function About() {
     <section id="about" className="px-6 py-section md:px-8">
       <div className="mx-auto grid max-w-about grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
         <motion.div {...fadeUp} className="w-full">
-          <div className="aspect-[3/4] w-full overflow-hidden rounded-2xl border border-glass-border">
+          <div className="about-photo-frame aspect-[3/4] w-full">
             <img
               src={profileImg}
               alt="Sadhuram Agarwal"
@@ -54,7 +54,7 @@ export default function About() {
                   hidden: { opacity: 0, y: 16 },
                   visible: { opacity: 1, y: 0 },
                 }}
-                className="rounded-full border border-glass-border bg-glass px-4 py-1.5 text-[0.8rem] text-muted"
+                className="glass-chip px-4 py-1.5 text-[0.8rem] text-muted"
               >
                 {stat}
               </motion.span>

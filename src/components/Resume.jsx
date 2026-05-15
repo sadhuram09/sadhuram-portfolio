@@ -18,7 +18,7 @@ export default function Resume() {
         </p>
 
         <motion.div
-          className="glass-card mx-auto max-w-resume rounded-2xl p-12"
+          className="glass-card glass-card-hover glass-card-reflect mx-auto max-w-resume p-12"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -27,7 +27,7 @@ export default function Resume() {
           <FileText className="mx-auto mb-6 text-cyan" size={48} strokeWidth={1.25} />
           <h3 className="mb-2 text-xl font-light text-heading">Sadhuram Agarwal — Resume</h3>
           <p className="mb-8 text-sm text-muted">
-            Full-Stack Developer &amp; ML Engineer · Updated 2026
+            AI/ML Engineer · Updated 2026
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <a href="/resume.pdf" download className="btn-primary">

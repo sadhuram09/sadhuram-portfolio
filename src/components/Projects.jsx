@@ -58,7 +58,7 @@ function ProjectCard({ project, index }) {
     <motion.article
       {...cardMotion}
       transition={{ ...cardMotion.transition, delay: index * 0.08 }}
-      className="group rounded-[20px] border border-white/[0.07] bg-[rgba(255,255,255,0.03)] p-8 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/[0.14] md:p-10 md:px-12"
+      className="glass-card glass-card-hover glass-card-reflect group p-8 transition-transform duration-300 hover:-translate-y-0.5 md:p-10 md:px-12"
     >
       <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-5">
         <div className="lg:col-span-3">

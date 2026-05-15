@@ -21,14 +21,14 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-24 text-center"
-      style={{
-        background:
-          '#080810 radial-gradient(ellipse 60% 50% at 50% 50%, rgba(6,182,212,0.04) 0%, transparent 70%)',
-      }}
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-24 text-center"
     >
       <motion.div
-        className="mx-auto flex max-w-4xl flex-col items-center"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgba(6,182,212,0.06)] blur-[100px]"
+        aria-hidden="true"
+      />
+      <motion.div
+        className="relative z-10 mx-auto flex max-w-4xl flex-col items-center"
         variants={container}
         initial="hidden"
         animate="visible"
@@ -50,9 +50,7 @@ export default function Hero() {
             fontWeight: 300,
           }}
         >
-          Full-Stack Developer
-          <br />
-          &amp; ML Engineer
+          AI/ML Engineer
         </motion.h1>
 
         <motion.p variants={item} className="mb-10 max-w-xl text-[1.1rem] text-muted">

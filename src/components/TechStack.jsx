@@ -65,7 +65,7 @@ const tabs = [
 
 function TechTile({ name, icon }) {
   return (
-    <div className="group flex flex-col items-center justify-center rounded-xl border border-white/[0.06] bg-glass p-6 transition-all duration-200 hover:border-cyan/30 hover:bg-cyan/10">
+    <div className="glass-card glass-card-hover group flex flex-col items-center justify-center p-6 transition-all duration-200 hover:border-cyan/30">
       {icon ? (
         <img src={icon} alt="" className="mb-3 h-10 w-10 object-contain" width={40} height={40} />
       ) : (
