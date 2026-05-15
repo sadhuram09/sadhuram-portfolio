@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" fill="none">
+  <rect width="600" height="800" fill="#0c0c14"/>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+  </defs>
+  <rect y="0" width="600" height="420" fill="url(#sky)"/>
+  <ellipse cx="300" cy="520" rx="140" ry="180" fill="#1a1a24"/>
+  <text x="300" y="720" text-anchor="middle" fill="#4a4a5a" font-family="Inter, sans-serif" font-size="14" font-weight="300">Replace with profile.jpg</text>
+</svg>
